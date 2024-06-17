@@ -12,28 +12,10 @@ A proof-of-concept tool for generating payloads that exploit unsafe Java object 
 
 ## Description
 
-Originally released as part of AppSecCali 2015 Talk
-["Marshalling Pickles: how deserializing objects will ruin your day"](
-        https://frohoff.github.io/appseccali-marshalling-pickles/)
-with gadget chains for Apache Commons Collections (3.x and 4.x), Spring Beans/Core (4.x), and Groovy (2.3.x).
-Later updated to include additional gadget chains for
-[JRE <= 1.7u21](https://gist.github.com/frohoff/24af7913611f8406eaf3) and several other libraries.
+该项目fork自ysoerial的原仓库，用于增添本人在学习过程当中的所遇到的所有反序列化链，后续会根据需要进行额外开发。
 
-__ysoserial__ is a collection of utilities and property-oriented programming "gadget chains" discovered in common java
-libraries that can, under the right conditions, exploit Java applications performing __unsafe deserialization__ of
-objects. The main driver program takes a user-specified command and wraps it in the user-specified gadget chain, then
-serializes these objects to stdout. When an application with the required gadgets on the classpath unsafely deserializes
-this data, the chain will automatically be invoked and cause the command to be executed on the application host.
-
-It should be noted that the vulnerability lies in the application performing unsafe deserialization and NOT in having
-gadgets on the classpath.
-
-## Disclaimer
-
-This software has been created purely for the purposes of academic research and
-for the development of effective defensive techniques, and is not intended to be
-used to attack systems except where explicitly authorized. Project maintainers
-are not responsible or liable for misuse of the software. Use responsibly.
+## Log
+1.现已加入Rome全家桶（RomeSpring、Rome2、RomeBypassHashmap、RomeSignedObject、SpringRome1、RomeJdbc）
 
 ## Usage
 
@@ -124,6 +106,4 @@ Requires Java 1.7+ and Maven 3.x+
 5. Create new Pull Request
 
 ## See Also
-* [Java-Deserialization-Cheat-Sheet](https://github.com/GrrrDog/Java-Deserialization-Cheat-Sheet): info on vulnerabilities, tools, blogs/write-ups, etc.
-* [marshalsec](https://github.com/frohoff/marshalsec): similar project for various Java deserialization formats/libraries
-* [ysoserial.net](https://github.com/pwntester/ysoserial.net): similar project for .NET deserialization
+* [frohoff/ysoserial](https://github.com/frohoff/ysoserial)

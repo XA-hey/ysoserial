@@ -1,5 +1,7 @@
 package ysoserial.payloads.annotation;
 
+import org.python.indexer.ast.NGeneratorExp;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -25,6 +27,8 @@ public @interface Authors {
     String EDOARDOVIGNATI = "EdoardoVignati";
     String JANG = "Jang";
     String ARTSPLOIT = "artsploit";
+
+    String F4NX1NG = "f4nx1ng";
 
     String[] value() default {};
 
