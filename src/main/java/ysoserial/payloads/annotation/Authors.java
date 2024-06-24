@@ -12,6 +12,7 @@ import java.lang.reflect.AnnotatedElement;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Authors {
     String FROHOFF = "frohoff";
+    String Y4ER = "Y4er";
     String PWNTESTER = "pwntester";
     String CSCHNEIDER4711 = "cschneider4711";
     String MBECHLER = "mbechler";
