@@ -34,9 +34,11 @@ public class GeneratePayload {
 		try {
 			final ObjectPayload payload = payloadClass.newInstance();
 			final Object object = payload.getObject(command);
-            final String filename = args[2];
 			PrintStream out = System.out;
-            if (payloadClass.getName().contains("Hessian")){
+            if (payloadClass.getName().contains("Hessian") && args[2] != null){
+                printUsage();
+                System.exit(USAGE_CODE);
+                final String filename = args[2];
                 Serializer.Hessian_serialize(object,filename);
             }else{
                 Serializer.serialize(object, out);

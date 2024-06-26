@@ -368,6 +368,14 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.60</version>
         </dependency>
+        <dependency>
+            <groupId>coherence</groupId>
+            <artifactId>coherence</artifactId>
+            <type>jar</type>
+            <version>3.7</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/lib/coherence.jar</systemPath>
+        </dependency>
 	</dependencies>
 
 	<profiles>

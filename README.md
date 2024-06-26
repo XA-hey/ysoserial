@@ -1,24 +1,18 @@
 
 # ysoserial
-
-[![GitHub release](https://img.shields.io/github/downloads/frohoff/ysoserial/latest/total)](https://github.com/frohoff/ysoserial/releases/latest/download/ysoserial-all.jar)
-[![Travis Build Status](https://api.travis-ci.com/frohoff/ysoserial.svg?branch=master)](https://travis-ci.com/github/frohoff/ysoserial)
-[![Appveyor Build status](https://ci.appveyor.com/api/projects/status/a8tbk9blgr3yut4g/branch/master?svg=true)](https://ci.appveyor.com/project/frohoff/ysoserial/branch/master)
-[![JitPack](https://jitpack.io/v/frohoff/ysoserial.svg)](https://jitpack.io/#frohoff/ysoserial)
-
-A proof-of-concept tool for generating payloads that exploit unsafe Java object deserialization.
-
-![logo](ysoserial.png)
-
 ## Description
 
 该项目fork自ysoerial的原仓库，用于增添本人在学习过程当中的所遇到的所有反序列化链，后续会根据需要进行额外开发。
 
 ## Log
 1.现已加入Rome全家桶（RomeSpring、Rome2、RomeBypassHashmap、RomeSignedObject、SpringRome1、RomeJdbc）
+
 2.现已加入两个基于Hessian的利用链，支持Hessian利用链的二进制文件输出，具体的命令格式参考usage
-`Usage: java -jar ysoserial-[version]-all.jar [payload] '[command]'
-java -jar ysoserial-[version]-all.jar [Hessian-payload] '[command]/[url]' [filename]`
+`java -jar ysoserial-[version]-all.jar [Hessian-payload] '[command]/[url]' [filename]`
+
+由于Heesian利用链的字节流对象在通过管道符输出至bin文件的时候，总是会有'end of file'的问题，所以直接干脆在工具内部使用FileOutputStream进行输出,HessianSpring利用链由于Spring版本不匹配的问题，所以无法正常实现。
+
+3.引入了WebLogic的反序列化漏洞CVE-2020-2555，payload名称为Weblogic1,同时解决了由于做Hessian判定而失效的前置非Hessian类型的payload问题
 
 ## Usage
 
